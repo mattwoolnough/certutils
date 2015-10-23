@@ -1,0 +1,12 @@
+
+<div class="phone-detail-view full-width">
+  <div class="card">
+    <div class="card-header p+">
+      <h3 class="title">{{::vm.phone.model}}</h3>
+      <button ng-show="vm.state === 'view'" ng-click="vm.beginEdit()" class="btn btn--m btn--blue btn--fab"><i class="mdi mdi-pencil"></i></button>
+    </div>
+    <div class="card-content">
+      <aio-phone-form phone="vm.phone" state="vm.state" submit="vm.updatePhone" cancel="vm.cancelUpdate"></aio-phone-form>
+    </div>
+  </div>
+</div>

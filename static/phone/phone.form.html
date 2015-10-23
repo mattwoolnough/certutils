@@ -1,0 +1,84 @@
+
+<form name="vm.phoneForm" ng-class="{'editing': vm.state === 'edit', 'adding': vm.state === 'add'}" class="form">
+  <div class="form-group">
+    <div class="form-item">
+      <div class="form-label"><span>Model:</span><span class="form-value">{{vm.phone.model}}</span></div>
+      <div class="form-field">
+        <div ng-messages="vm.phoneForm.modelInput.$error" ng-show="vm.phoneForm.modelInput.showError" class="error-message">
+          <p ng-message="required">Model filed is required!</p>
+        </div>
+        <lx-text-field label="Model" error="vm.phoneForm.modelInput.$invalid &amp;&amp; vm.phoneForm.modelInput.$dirty" class="form-control">
+          <input name="modelInput" type="text" ng-model="vm.phone.model" required="required"/>
+        </lx-text-field>
+        <div ng-show="vm.phoneForm.modelInput.$invalid &amp;&amp; vm.phoneForm.modelInput.$dirty" class="error-icon"><i ng-mouseenter="vm.phoneForm.modelInput.showError = true" ng-mouseleave="vm.phoneForm.modelInput.showError = false" class="icon icon--red icon--circled mdi mdi-minus icon-breath-animation"></i></div>
+      </div>
+    </div>
+    <div class="form-item">
+      <div class="form-label"><span>OS:</span><span class="form-value">{{vm.phone.os}}</span></div>
+      <div class="form-field">
+        <div ng-messages="vm.phoneForm.osSelect.$error" ng-show="vm.phoneForm.osSelect.showError" class="error-message">
+          <p ng-message="required">OS Type filed is required!</p>
+        </div>
+        <lx-select name="osSelect" ng-model="vm.phone.os" placeholder="OS Type" choices="vm.selects.src" floating-label="floating-label" selection-to-model="vm.selects.toModel(data, callback)" model-to-selection="vm.selects.toSelection(data, callback)" required="required" class="form-control">
+          <lx-select-selected>{{$selected.name}}</lx-select-selected>
+          <lx-select-choices>{{$choice.name}}</lx-select-choices>
+        </lx-select>
+        <div ng-show="vm.phoneForm.osSelect.$invalid &amp;&amp; vm.phoneForm.osSelect.$dirty" class="error-icon"><i ng-mouseenter="vm.phoneForm.osSelect.showError = true" ng-mouseleave="vm.phoneForm.osSelect.showError = false" class="icon icon--red icon--circled mdi mdi-minus icon-breath-animation"></i></div>
+      </div>
+    </div>
+    <div class="form-item">
+      <div class="form-label"><span>Price:</span><span class="form-value">{{vm.phone.price}}</span></div>
+      <div class="form-field">
+        <div ng-messages="vm.phoneForm.priceInput.$error" ng-show="vm.phoneForm.priceInput.showError" class="error-message">
+          <p ng-message="required">Price filed is required!</p>
+          <p ng-message="number">Price filed must be a valid number!</p>
+        </div>
+        <lx-text-field label="Price" error="vm.phoneForm.priceInput.$invalid &amp;&amp; vm.phoneForm.priceInput.$dirty" class="form-control">
+          <input name="priceInput" type="text" ng-model="vm.phone.price" aio-validate-number="aio-validate-number" required="required"/>
+        </lx-text-field>
+        <div ng-show="vm.phoneForm.priceInput.$invalid &amp;&amp; vm.phoneForm.priceInput.$dirty" class="error-icon"><i ng-mouseenter="vm.phoneForm.priceInput.showError = true" ng-mouseleave="vm.phoneForm.priceInput.showError = false" class="icon icon--red icon--circled mdi mdi-minus icon-breath-animation"></i></div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-item">
+      <div class="form-label"><span>Screen Size:</span><span class="form-value">{{vm.phone.size}}</span></div>
+      <div class="form-field">
+        <div ng-messages="vm.phoneForm.sizeInput.$error" ng-show="vm.phoneForm.sizeInput.showError" class="error-message">
+          <p ng-message="required">Screen Size filed is required!</p>
+          <p ng-message="number">Screen Size must be a valid number!</p>
+        </div>
+        <lx-text-field label="Screen Size" error="vm.phoneForm.sizeInput.$invalid &amp;&amp; vm.phoneForm.sizeInput.$dirty" class="form-control">
+          <input name="sizeInput" type="text" ng-model="vm.phone.size" aio-validate-number="aio-validate-number" required="required"/>
+        </lx-text-field>
+        <div ng-show="vm.phoneForm.sizeInput.$invalid &amp;&amp; vm.phoneForm.sizeInput.$dirty" class="error-icon"><i ng-mouseenter="vm.phoneForm.sizeInput.showError = true" ng-mouseleave="vm.phoneForm.sizeInput.showError = false" class="icon icon--red icon--circled mdi mdi-minus icon-breath-animation"></i></div>
+      </div>
+    </div>
+    <div class="form-item">
+      <div class="form-label"><span>Manufacturer:</span><span class="form-value">{{vm.phone.manufacturer}}</span></div>
+      <div class="form-field">
+        <div ng-messages="vm.phoneForm.manufacturerInput.$error" ng-show="vm.phoneForm.manufacturerInput.showError" class="error-message">
+          <p ng-message="required">Manufacturer filed is required!</p>
+        </div>
+        <lx-text-field label="Manufacturer" error="vm.phoneForm.manufacturerInput.$invalid &amp;&amp; vm.phoneForm.manufacturerInput.$dirty" class="form-control">
+          <input name="manufacturerInput" type="text" ng-model="vm.phone.manufacturer" required="required"/>
+        </lx-text-field>
+        <div ng-show="vm.phoneForm.manufacturerInput.$invalid &amp;&amp; vm.phoneForm.manufacturerInput.$dirty" class="error-icon"><i ng-mouseenter="vm.phoneForm.manufacturerInput.showError = true" ng-mouseleave="vm.phoneForm.manufacturerInput.showError = false" class="icon icon--red icon--circled mdi mdi-minus icon-breath-animation"></i></div>
+      </div>
+    </div>
+    <div class="form-item">
+      <div class="form-label"><span>Release Date:</span><span class="form-value">{{vm.phone.releaseDate | date: 'MMMM d, yyyy'}}</span></div>
+      <div class="form-field">
+        <div ng-show="vm.releaseDateError" class="error-message">
+          <p>Release Date filed is required!</p>
+        </div>
+        <lx-date-picker label="Release Date" model="vm.phone.releaseDate" ng-click="vm.hasClicked = true" class="form-control"></lx-date-picker>
+        <div ng-show="!vm.phone.releaseDate &amp;&amp; vm.hasClicked" class="error-icon"><i ng-mouseenter="vm.releaseDateError = true" ng-mouseleave="vm.releaseDateError = false" class="icon icon--red icon--circled mdi mdi-minus icon-breath-animation"></i></div>
+      </div>
+    </div>
+  </div>
+  <div class="actions mt p+">
+    <button ng-click="vm.cancel()" ng-disabled="vm.isRequest" class="btn btn--m btn--white btn--raised btn-cancel">Cancel</button>
+    <button type="submit" ng-click="vm.submitForm(vm.phone)" ng-disabled="vm.phoneForm.$invalid || vm.phoneForm.$pristine || !vm.phone.releaseDate || vm.isRequest" aio-loading-button="vm.isRequest" class="btn btn--m btn--green btn--raised btn-save">Save</button>
+  </div>
+</form>

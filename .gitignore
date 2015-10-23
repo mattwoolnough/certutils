@@ -1,0 +1,10 @@
+logs/*
+!.gitkeep
+node_modules/
+tmp
+.DS_Store
+.idea
+client/source/vendor
+npm-debug.log
+client/source/test/e2e/screenshots/*
+client/source/test/e2e/screenshots/.gitkeep
