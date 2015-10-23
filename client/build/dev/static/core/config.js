@@ -6,8 +6,8 @@
         .config(appConfig);
 
     var config = {
-        appErrorPrefix: '[Aio Angular Error] ',
-        appTitle: 'Aio Angular'
+        appErrorPrefix: '[Cert Util Error] ',
+        appTitle: 'Cert Util'
     };
 
     appConfig.$inject = ['routerHelperProvider'];

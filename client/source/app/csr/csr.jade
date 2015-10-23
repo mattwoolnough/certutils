@@ -1,0 +1,36 @@
+.csr-main-view.full-width
+    a.btn.btn--m.btn--green.btn--raised(ui-sref="root.csr.create", lx-ripple)
+        i.mdi.mdi-plus-box.mr
+        span Create New
+    .card(class="mt+")
+        table.data-table
+            thead
+                tr.heading
+                    th Model
+                    th.hide-sm OS
+                    th.hide-sm Price
+                    th.text-center Action
+                tr
+                    td.divider.divider--dark(colspan="4")
+            tbody
+                tr.empty-row(ng-if="vm.csrs.length === 0")
+                    td(colspan="4") No Csrs found!
+                tr.data-table__clickable-row.csr-item(ng-repeat="csr in vm.csrs track by csr.id")
+                    td
+                        span {{::csr.model}}
+                    td.hide-sm
+                        span {{::csr.os}}
+                    td.hide-sm
+                        span {{::csr.price}}
+                    td.text-center
+                        a.btn.btn--m.btn--blue.btn--fab(
+                            ui-sref="root.csr.detail({id: csr.id})",
+                            lx-ripple, lx-tooltip="View"
+                        )
+                            i.mdi.mdi-information
+                        button.btn.btn--m.btn--red.btn--fab(
+                            ng-click="vm.deleteCsr(csr.id, csr.model)",
+                            lx-ripple, lx-tooltip="Delete"
+                        )
+                            i.mdi.mdi-delete
+

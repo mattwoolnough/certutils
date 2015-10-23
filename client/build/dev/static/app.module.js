@@ -8,7 +8,8 @@
         'app.home',
         'app.login',
         'app.dashboard',
-        'app.phone'
+        'app.phone',
+        'app.csr'
     ]);
 
 })();

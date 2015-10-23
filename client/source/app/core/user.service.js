@@ -3,11 +3,11 @@
 
     angular
         .module('app.core')
-        .factory('userAPI', userSerivce);
+        .factory('userAPI', userService);
 
-    userSerivce.$inject = ['$http', '$q', '$rootScope', 'Event', 'ajaxErrorHandler'];
+    userService.$inject = ['$http', '$q', '$rootScope', 'Event', 'ajaxErrorHandler'];
     /* @ngInject */
-    function userSerivce ($http, $q, $rootScope, Event, ajaxError) {
+    function userService ($http, $q, $rootScope, Event, ajaxError) {
         var _isLoggedIn;
         var _userInfo;
         var service = {

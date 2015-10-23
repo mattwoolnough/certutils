@@ -1,0 +1,114 @@
+form.form(name="vm.csrForm",
+    ng-class="{'editing': vm.state === 'edit', 'adding': vm.state === 'add'}")
+    .form-group
+        .form-item
+            .form-label
+                span Model:
+                span.form-value {{vm.csr.model}}
+            .form-field
+                .error-message(ng-messages="vm.csrForm.modelInput.$error",
+                    ng-show="vm.csrForm.modelInput.showError")
+                    p(ng-message="required") Model filed is required!
+                lx-text-field.form-control(label="Model", error="vm.csrForm.modelInput.$invalid && vm.csrForm.modelInput.$dirty")
+                    input(name="modelInput", type="text", ng-model="vm.csr.model", required)
+                .error-icon(ng-show="vm.csrForm.modelInput.$invalid && vm.csrForm.modelInput.$dirty")
+                    i.icon.icon--red.icon--circled.mdi.mdi-minus.icon-breath-animation(
+                        ng-mouseenter="vm.csrForm.modelInput.showError = true",
+                        ng-mouseleave="vm.csrForm.modelInput.showError = false"
+                    )
+        .form-item
+            .form-label
+                span OS:
+                span.form-value {{vm.csr.os}}
+            .form-field
+                .error-message(ng-messages="vm.csrForm.osSelect.$error",
+                    ng-show="vm.csrForm.osSelect.showError")
+                    p(ng-message="required") OS Type filed is required!
+                lx-select.form-control(name="osSelect" ng-model="vm.csr.os",
+                    placeholder="OS Type", choices="vm.selects.src", floating-label,
+                    selection-to-model="vm.selects.toModel(data, callback)",
+                    model-to-selection="vm.selects.toSelection(data, callback)",
+                    required
+                )
+                    lx-select-selected {{$selected.name}}
+                    lx-select-choices {{$choice.name}}
+                .error-icon(ng-show="vm.csrForm.osSelect.$invalid && vm.csrForm.osSelect.$dirty")
+                    i.icon.icon--red.icon--circled.mdi.mdi-minus.icon-breath-animation(
+                        ng-mouseenter="vm.csrForm.osSelect.showError = true",
+                        ng-mouseleave="vm.csrForm.osSelect.showError = false"
+                    )
+        .form-item
+            .form-label
+                span Price:
+                span.form-value {{vm.csr.price}}
+            .form-field
+                .error-message(ng-messages="vm.csrForm.priceInput.$error",
+                    ng-show="vm.csrForm.priceInput.showError")
+                    p(ng-message="required") Price filed is required!
+                    p(ng-message="number") Price filed must be a valid number!
+                lx-text-field.form-control(label="Price", error="vm.csrForm.priceInput.$invalid && vm.csrForm.priceInput.$dirty")
+                    input(name="priceInput", type="text", ng-model="vm.csr.price",
+                        aio-validate-number, required)
+                .error-icon(ng-show="vm.csrForm.priceInput.$invalid && vm.csrForm.priceInput.$dirty")
+                    i.icon.icon--red.icon--circled.mdi.mdi-minus.icon-breath-animation(
+                        ng-mouseenter="vm.csrForm.priceInput.showError = true",
+                        ng-mouseleave="vm.csrForm.priceInput.showError = false"
+                    )
+    .form-group
+        .form-item
+            .form-label
+                span Screen Size:
+                span.form-value {{vm.csr.size}}
+            .form-field
+                .error-message(ng-messages="vm.csrForm.sizeInput.$error",
+                    ng-show="vm.csrForm.sizeInput.showError")
+                    p(ng-message="required") Screen Size filed is required!
+                    p(ng-message="number") Screen Size must be a valid number!
+                lx-text-field.form-control(label="Screen Size", error="vm.csrForm.sizeInput.$invalid && vm.csrForm.sizeInput.$dirty")
+                    input(name="sizeInput", type="text", ng-model="vm.csr.size",
+                        aio-validate-number, required)
+                .error-icon(ng-show="vm.csrForm.sizeInput.$invalid && vm.csrForm.sizeInput.$dirty")
+                    i.icon.icon--red.icon--circled.mdi.mdi-minus.icon-breath-animation(
+                        ng-mouseenter="vm.csrForm.sizeInput.showError = true",
+                        ng-mouseleave="vm.csrForm.sizeInput.showError = false"
+                    )
+        .form-item
+            .form-label
+                span Manufacturer:
+                span.form-value {{vm.csr.manufacturer}}
+            .form-field
+                .error-message(ng-messages="vm.csrForm.manufacturerInput.$error",
+                    ng-show="vm.csrForm.manufacturerInput.showError")
+                    p(ng-message="required") Manufacturer filed is required!
+                lx-text-field.form-control(label="Manufacturer", error="vm.csrForm.manufacturerInput.$invalid && vm.csrForm.manufacturerInput.$dirty")
+                    input(name="manufacturerInput", type="text",
+                        ng-model="vm.csr.manufacturer", required)
+                .error-icon(ng-show="vm.csrForm.manufacturerInput.$invalid && vm.csrForm.manufacturerInput.$dirty")
+                    i.icon.icon--red.icon--circled.mdi.mdi-minus.icon-breath-animation(
+                        ng-mouseenter="vm.csrForm.manufacturerInput.showError = true",
+                        ng-mouseleave="vm.csrForm.manufacturerInput.showError = false"
+                    )
+        .form-item
+            .form-label
+                span Release Date:
+                span.form-value {{vm.csr.releaseDate | date: 'MMMM d, yyyy'}}
+            .form-field
+                .error-message(ng-show="vm.releaseDateError")
+                    p Release Date filed is required!
+                lx-date-picker.form-control(label="Release Date", model="vm.csr.releaseDate",
+                    ng-click="vm.hasClicked = true")
+                .error-icon(ng-show="!vm.csr.releaseDate && vm.hasClicked")
+                    i.icon.icon--red.icon--circled.mdi.mdi-minus.icon-breath-animation(
+                        ng-mouseenter="vm.releaseDateError = true",
+                        ng-mouseleave="vm.releaseDateError = false"
+                    )
+    .actions(class="mt p+")
+        button.btn.btn--m.btn--white.btn--raised.btn-cancel(
+            ng-click="vm.cancel()",
+            ng-disabled="vm.isRequest"
+        ) Cancel
+        button.btn.btn--m.btn--green.btn--raised.btn-save(type="submit",
+            ng-click="vm.submitForm(vm.csr)",
+            ng-disabled="vm.csrForm.$invalid || vm.csrForm.$pristine || !vm.csr.releaseDate || vm.isRequest",
+            aio-loading-button="vm.isRequest",
+        ) Save

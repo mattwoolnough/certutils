@@ -1,0 +1,12 @@
+
+<div class="csr-detail-view full-width">
+  <div class="card">
+    <div class="card-header p+">
+      <h3 class="title">{{::vm.csr.model}}</h3>
+      <button ng-show="vm.state === 'view'" ng-click="vm.beginEdit()" class="btn btn--m btn--blue btn--fab"><i class="mdi mdi-pencil"></i></button>
+    </div>
+    <div class="card-content">
+      <aio-csr-form csr="vm.csr" state="vm.state" submit="vm.updateCsr" cancel="vm.cancelUpdate"></aio-csr-form>
+    </div>
+  </div>
+</div>

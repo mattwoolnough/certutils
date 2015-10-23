@@ -1,0 +1,84 @@
+
+<form name="vm.csrForm" ng-class="{'editing': vm.state === 'edit', 'adding': vm.state === 'add'}" class="form">
+  <div class="form-group">
+    <div class="form-item">
+      <div class="form-label"><span>Model:</span><span class="form-value">{{vm.csr.model}}</span></div>
+      <div class="form-field">
+        <div ng-messages="vm.csrForm.modelInput.$error" ng-show="vm.csrForm.modelInput.showError" class="error-message">
+          <p ng-message="required">Model filed is required!</p>
+        </div>
+        <lx-text-field label="Model" error="vm.csrForm.modelInput.$invalid &amp;&amp; vm.csrForm.modelInput.$dirty" class="form-control">
+          <input name="modelInput" type="text" ng-model="vm.csr.model" required="required"/>
+        </lx-text-field>
+        <div ng-show="vm.csrForm.modelInput.$invalid &amp;&amp; vm.csrForm.modelInput.$dirty" class="error-icon"><i ng-mouseenter="vm.csrForm.modelInput.showError = true" ng-mouseleave="vm.csrForm.modelInput.showError = false" class="icon icon--red icon--circled mdi mdi-minus icon-breath-animation"></i></div>
+      </div>
+    </div>
+    <div class="form-item">
+      <div class="form-label"><span>OS:</span><span class="form-value">{{vm.csr.os}}</span></div>
+      <div class="form-field">
+        <div ng-messages="vm.csrForm.osSelect.$error" ng-show="vm.csrForm.osSelect.showError" class="error-message">
+          <p ng-message="required">OS Type filed is required!</p>
+        </div>
+        <lx-select name="osSelect" ng-model="vm.csr.os" placeholder="OS Type" choices="vm.selects.src" floating-label="floating-label" selection-to-model="vm.selects.toModel(data, callback)" model-to-selection="vm.selects.toSelection(data, callback)" required="required" class="form-control">
+          <lx-select-selected>{{$selected.name}}</lx-select-selected>
+          <lx-select-choices>{{$choice.name}}</lx-select-choices>
+        </lx-select>
+        <div ng-show="vm.csrForm.osSelect.$invalid &amp;&amp; vm.csrForm.osSelect.$dirty" class="error-icon"><i ng-mouseenter="vm.csrForm.osSelect.showError = true" ng-mouseleave="vm.csrForm.osSelect.showError = false" class="icon icon--red icon--circled mdi mdi-minus icon-breath-animation"></i></div>
+      </div>
+    </div>
+    <div class="form-item">
+      <div class="form-label"><span>Price:</span><span class="form-value">{{vm.csr.price}}</span></div>
+      <div class="form-field">
+        <div ng-messages="vm.csrForm.priceInput.$error" ng-show="vm.csrForm.priceInput.showError" class="error-message">
+          <p ng-message="required">Price filed is required!</p>
+          <p ng-message="number">Price filed must be a valid number!</p>
+        </div>
+        <lx-text-field label="Price" error="vm.csrForm.priceInput.$invalid &amp;&amp; vm.csrForm.priceInput.$dirty" class="form-control">
+          <input name="priceInput" type="text" ng-model="vm.csr.price" aio-validate-number="aio-validate-number" required="required"/>
+        </lx-text-field>
+        <div ng-show="vm.csrForm.priceInput.$invalid &amp;&amp; vm.csrForm.priceInput.$dirty" class="error-icon"><i ng-mouseenter="vm.csrForm.priceInput.showError = true" ng-mouseleave="vm.csrForm.priceInput.showError = false" class="icon icon--red icon--circled mdi mdi-minus icon-breath-animation"></i></div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-item">
+      <div class="form-label"><span>Screen Size:</span><span class="form-value">{{vm.csr.size}}</span></div>
+      <div class="form-field">
+        <div ng-messages="vm.csrForm.sizeInput.$error" ng-show="vm.csrForm.sizeInput.showError" class="error-message">
+          <p ng-message="required">Screen Size filed is required!</p>
+          <p ng-message="number">Screen Size must be a valid number!</p>
+        </div>
+        <lx-text-field label="Screen Size" error="vm.csrForm.sizeInput.$invalid &amp;&amp; vm.csrForm.sizeInput.$dirty" class="form-control">
+          <input name="sizeInput" type="text" ng-model="vm.csr.size" aio-validate-number="aio-validate-number" required="required"/>
+        </lx-text-field>
+        <div ng-show="vm.csrForm.sizeInput.$invalid &amp;&amp; vm.csrForm.sizeInput.$dirty" class="error-icon"><i ng-mouseenter="vm.csrForm.sizeInput.showError = true" ng-mouseleave="vm.csrForm.sizeInput.showError = false" class="icon icon--red icon--circled mdi mdi-minus icon-breath-animation"></i></div>
+      </div>
+    </div>
+    <div class="form-item">
+      <div class="form-label"><span>Manufacturer:</span><span class="form-value">{{vm.csr.manufacturer}}</span></div>
+      <div class="form-field">
+        <div ng-messages="vm.csrForm.manufacturerInput.$error" ng-show="vm.csrForm.manufacturerInput.showError" class="error-message">
+          <p ng-message="required">Manufacturer filed is required!</p>
+        </div>
+        <lx-text-field label="Manufacturer" error="vm.csrForm.manufacturerInput.$invalid &amp;&amp; vm.csrForm.manufacturerInput.$dirty" class="form-control">
+          <input name="manufacturerInput" type="text" ng-model="vm.csr.manufacturer" required="required"/>
+        </lx-text-field>
+        <div ng-show="vm.csrForm.manufacturerInput.$invalid &amp;&amp; vm.csrForm.manufacturerInput.$dirty" class="error-icon"><i ng-mouseenter="vm.csrForm.manufacturerInput.showError = true" ng-mouseleave="vm.csrForm.manufacturerInput.showError = false" class="icon icon--red icon--circled mdi mdi-minus icon-breath-animation"></i></div>
+      </div>
+    </div>
+    <div class="form-item">
+      <div class="form-label"><span>Release Date:</span><span class="form-value">{{vm.csr.releaseDate | date: 'MMMM d, yyyy'}}</span></div>
+      <div class="form-field">
+        <div ng-show="vm.releaseDateError" class="error-message">
+          <p>Release Date filed is required!</p>
+        </div>
+        <lx-date-picker label="Release Date" model="vm.csr.releaseDate" ng-click="vm.hasClicked = true" class="form-control"></lx-date-picker>
+        <div ng-show="!vm.csr.releaseDate &amp;&amp; vm.hasClicked" class="error-icon"><i ng-mouseenter="vm.releaseDateError = true" ng-mouseleave="vm.releaseDateError = false" class="icon icon--red icon--circled mdi mdi-minus icon-breath-animation"></i></div>
+      </div>
+    </div>
+  </div>
+  <div class="actions mt p+">
+    <button ng-click="vm.cancel()" ng-disabled="vm.isRequest" class="btn btn--m btn--white btn--raised btn-cancel">Cancel</button>
+    <button type="submit" ng-click="vm.submitForm(vm.csr)" ng-disabled="vm.csrForm.$invalid || vm.csrForm.$pristine || !vm.csr.releaseDate || vm.isRequest" aio-loading-button="vm.isRequest" class="btn btn--m btn--green btn--raised btn-save">Save</button>
+  </div>
+</form>
