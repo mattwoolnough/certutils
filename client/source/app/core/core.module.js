@@ -4,6 +4,7 @@
     angular
         .module('app.core', [
             'app.helper', 'ngAnimate', 'ngMessages',
-            'ui.router', 'angular-loading-bar', 'lumx'
+            'ui.router', 'angular-loading-bar', 'lumx',
+            'formly', 'formlyLumx'
         ]);
 })();

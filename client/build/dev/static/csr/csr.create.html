@@ -5,7 +5,8 @@
       <h3 class="title">Create a new csr</h3>
     </div>
     <div class="card-content">
-      <aio-csr-form csr="vm.csr" submit="vm.addNewCsr" state="vm.state"></aio-csr-form>
+      <formly-form model="vm.formData" fields="vm.formFields" csr="vm.csr" submit="vm.createNewCsr" state="vm.state"></formly-form>
+      <!--aio-csr-form(csr="vm.csr", submit="vm.createNewCsr", state="vm.state")-->
     </div>
   </div>
 </div>

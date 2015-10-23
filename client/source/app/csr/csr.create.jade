@@ -3,4 +3,5 @@
         .card-header(class="p+")
             h3.title Create a new csr
         .card-content
-            aio-csr-form(csr="vm.csr", submit="vm.addNewCsr", state="vm.state")
+            formly-form(model="vm.formData", fields="vm.formFields", csr="vm.csr", submit="vm.createNewCsr", state="vm.state")
+            //aio-csr-form(csr="vm.csr", submit="vm.createNewCsr", state="vm.state")
