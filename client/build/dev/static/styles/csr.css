@@ -27,6 +27,13 @@
   float: right;
   margin-top: -5px;
 }
+.aftl-flex-fields {
+  webkit-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  margin: 16px;
+}
 .form {
   display: -webkit-box;
   display: -webkit-flex;
