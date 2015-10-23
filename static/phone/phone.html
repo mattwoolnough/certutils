@@ -1,0 +1,31 @@
+
+<div class="phone-main-view full-width"><a ui-sref="root.phone.add" lx-ripple="lx-ripple" class="btn btn--m btn--green btn--raised"><i class="mdi mdi-plus-box mr"></i><span>Add New</span></a>
+  <div class="card mt+">
+    <table class="data-table">
+      <thead>
+        <tr class="heading">
+          <th>Model</th>
+          <th class="hide-sm">OS</th>
+          <th class="hide-sm">Price</th>
+          <th class="text-center">Action</th>
+        </tr>
+        <tr>
+          <td colspan="4" class="divider divider--dark"></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-if="vm.phones.length === 0" class="empty-row">
+          <td colspan="4">No Phones found!</td>
+        </tr>
+        <tr ng-repeat="phone in vm.phones track by phone.id" class="data-table__clickable-row phone-item">
+          <td><span>{{::phone.model}}</span></td>
+          <td class="hide-sm"><span>{{::phone.os}}</span></td>
+          <td class="hide-sm"><span>{{::phone.price}}</span></td>
+          <td class="text-center"><a ui-sref="root.phone.detail({id: phone.id})" lx-ripple="lx-ripple" lx-tooltip="View" class="btn btn--m btn--blue btn--fab"><i class="mdi mdi-information"></i></a>
+            <button ng-click="vm.deletePhone(phone.id, phone.model)" lx-ripple="lx-ripple" lx-tooltip="Delete" class="btn btn--m btn--red btn--fab"><i class="mdi mdi-delete"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
