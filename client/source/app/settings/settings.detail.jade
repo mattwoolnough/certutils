@@ -1,0 +1,9 @@
+.settings-detail-view.full-width
+    .card
+        .card-header(class="p+")
+            h3.title {{::vm.settings.model}}
+            button.btn.btn--m.btn--blue.btn--fab(ng-show="vm.state === 'view'", ng-click="vm.beginEdit()")
+                i.mdi.mdi-pencil
+        .card-content
+            aio-settings-form(settings="vm.settings", state="vm.state", submit="vm.updatesettings",
+                cancel="vm.cancelUpdate")

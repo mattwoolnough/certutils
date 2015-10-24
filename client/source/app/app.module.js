@@ -9,7 +9,8 @@
         'app.login',
         'app.dashboard',
         'app.phone',
-        'app.csr'
+        'app.csr',
+        'app.settings'
     ]);
 
 })();

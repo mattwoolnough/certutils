@@ -31,7 +31,7 @@
                     },
                     sidebar: {
                         icon: 'mdi-cellcsr-android',
-                        text: 'Csrs'
+                        text: 'CSRs'
                     },
                     breadcrumb: 'Csr List'
                 }

@@ -1,0 +1,12 @@
+
+<div class="settings-detail-view full-width">
+  <div class="card">
+    <div class="card-header p+">
+      <h3 class="title">{{::vm.settings.model}}</h3>
+      <button ng-show="vm.state === 'view'" ng-click="vm.beginEdit()" class="btn btn--m btn--blue btn--fab"><i class="mdi mdi-pencil"></i></button>
+    </div>
+    <div class="card-content">
+      <aio-settings-form settings="vm.settings" state="vm.state" submit="vm.updatesettings" cancel="vm.cancelUpdate"></aio-settings-form>
+    </div>
+  </div>
+</div>
