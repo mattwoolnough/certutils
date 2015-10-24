@@ -5,6 +5,6 @@
         .module('app.core', [
             'app.helper', 'ngAnimate', 'ngMessages',
             'ui.router', 'angular-loading-bar', 'lumx',
-            'formly', 'formlyLumx'
+            'formly', 'formlyLumx', 'ngStorage'
         ]);
 })();

@@ -33,7 +33,7 @@
                         icon: 'mdi-cellcsr-android',
                         text: 'CSRs'
                     },
-                    breadcrumb: 'Csr List'
+                    breadcrumb: 'CSRs'
                 }
             },
             {

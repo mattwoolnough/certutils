@@ -3,11 +3,11 @@
 
     angular
         .module('app.phone')
-        .factory('phoneAPI', phoneSerivce);
+        .factory('phoneAPI', phoneService);
 
-    phoneSerivce.$inject = ['$http', '$q', 'ajaxErrorHandler'];
+    phoneService.$inject = ['$http', '$q', 'ajaxErrorHandler'];
     /* @ngInject */
-    function phoneSerivce ($http, $q, ajaxError) {
+    function phoneService ($http, $q, ajaxError) {
         var service = {
             getPhones: getPhones,
             getPhoneDetail: getPhoneDetail,

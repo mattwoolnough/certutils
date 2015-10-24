@@ -13,9 +13,9 @@
                 tr
                     td.divider.divider--dark(colspan="4")
             tbody
-                tr.empty-row(ng-if="vm.settingss.length === 0")
-                    td(colspan="4") No settingss found!
-                tr.data-table__clickable-row.settings-item(ng-repeat="settings in vm.settingss track by settings.id")
+                tr.empty-row(ng-if="vm.settings.length === 0")
+                    td(colspan="4") No settings found!
+                tr.data-table__clickable-row.settings-item(ng-repeat="settings in vm.settings track by settings.id")
                     td
                         span {{::settings.model}}
                     td.hide-sm

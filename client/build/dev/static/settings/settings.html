@@ -14,10 +14,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-if="vm.settingss.length === 0" class="empty-row">
-          <td colspan="4">No settingss found!</td>
+        <tr ng-if="vm.settings.length === 0" class="empty-row">
+          <td colspan="4">No settings found!</td>
         </tr>
-        <tr ng-repeat="settings in vm.settingss track by settings.id" class="data-table__clickable-row settings-item">
+        <tr ng-repeat="settings in vm.settings track by settings.id" class="data-table__clickable-row settings-item">
           <td><span>{{::settings.model}}</span></td>
           <td class="hide-sm"><span>{{::settings.os}}</span></td>
           <td class="hide-sm"><span>{{::settings.price}}</span></td>

@@ -20,8 +20,8 @@
                     url: '/settings',
                     views: {
                         'main@': {
-                            templateUrl: 'static/settings/settings.html',
-                            controller: 'SettingsController as vm'
+                            templateUrl: 'static/settings/settings.detail.html',
+                            controller: 'settingsDetailController as vm'
                         }
                     },
                     data: {
@@ -33,7 +33,7 @@
                     //    icon: 'mdi-cellsettings-android',
                     //    text: 'settings'
                     //},
-                    breadcrumb: 'settings List'
+                    breadcrumb: 'settings'
                 }
             },
             {

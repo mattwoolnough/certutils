@@ -3,11 +3,11 @@
 
     angular
         .module('app.core')
-        .factory('util', utilSerivce);
+        .factory('util', utilService);
 
-    utilSerivce.$inject = [];
+    utilService.$inject = [];
     /* @ngInject */
-    function utilSerivce () {
+    function utilService () {
         var service = {
             preloadImage: preloadImage
         };
