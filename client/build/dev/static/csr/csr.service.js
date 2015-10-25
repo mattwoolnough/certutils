@@ -20,13 +20,6 @@
 
         return service;
 
-        /////////////
-        ////  Load Forge global as a service
-        /////////////
-        //function forge () {
-        //    return forge;
-        //}
-
         function createNewCsr (csr) {
             var req = {
                 'csr': csr

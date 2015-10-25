@@ -1,11 +1,10 @@
 .csr-detail-view.full-width
     .card
         .card-header(class="p+")
-            h3.title {{::vm.csr.model}}
-            {{vm.pem}}
-            {{vm.key}}
-            button.btn.btn--m.btn--blue.btn--fab(ng-show="vm.state === 'view'", ng-click="vm.beginEdit()")
-                i.mdi.mdi-pencil
-        .card-content
-            aio-csr-form(csr="vm.csr", state="vm.state", submit="vm.updateCsr",
-                cancel="vm.cancelUpdate")
+            h3.title PEM
+            .card
+                {{vm.pem}}
+        .card-header(class="p+")
+            h3.title KEY
+            .card
+                {{vm.key}}
