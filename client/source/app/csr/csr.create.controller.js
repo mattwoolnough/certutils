@@ -11,7 +11,7 @@
         'LxNotificationService', '$q', 'resultService'];
     /* @ngInject */
     function CsrAddController (csrAPI, $state,
-                               LxNotificationService, $q) {
+                               LxNotificationService, $q, resultService) {
         var vm = this;
 
         //vm.createNewCsr = createNewCsr;
