@@ -87,8 +87,8 @@ body .wrapper {
   }
 }
 .content .main-content .main-view.ng-enter {
-  -webkit-animation: bounceIn 0.8s;
-          animation: bounceIn 0.8s;
+  -webkit-animation: fadeIn 0.2s;
+          animation: fadeIn 0.2s;
 }
 .content .main-content .main-view .full-width {
   -webkit-align-self: flex-start;

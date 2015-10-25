@@ -4,9 +4,14 @@
     <div class="card-header p+">
       <h3 class="title">Create a new csr</h3>
     </div>
-    <div class="card-content">
-      <formly-form model="vm.formData" fields="vm.formFields" csr="vm.csr" submit="vm.createNewCsr" state="vm.state"></formly-form>
-      <!--aio-csr-form(csr="vm.csr", submit="vm.createNewCsr", state="vm.state")-->
+    <div class="card-content"></div>
+    <div class="actions mt p+">
+      <formly-form model="vm.formData" fields="vm.formFields" csr="vm.csr" submit="vm.createNewCsr" state="vm.state">
+        <div class="actions mt p+">
+          <button ng-click="vm.cancel()" ng-disabled="vm.isRequest" class="btn btn--m btn--white btn--raised btn-cancel">Cancel</button>
+          <button type="submit" ng-click="vm.submitForm(vm.formData)" ng-disabled="vm.formData.$invalid || vm.formData.$pristine" class="btn btn--m btn--green btn--raised btn-save">Submit</button>
+        </div>
+      </formly-form>
     </div>
   </div>
 </div>

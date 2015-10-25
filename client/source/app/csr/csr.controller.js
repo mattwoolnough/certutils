@@ -17,7 +17,7 @@
         /////////////
 
         function init () {
-            _getCsrList();
+            //_getCsrList();
         }
 
         function _getCsrList () {

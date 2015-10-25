@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="static/vendor/lumx/dist/lumx.css" />
     <link rel="stylesheet" href="static/vendor/animate.css/animate.css" />
     <link rel="stylesheet" href="static/vendor/angular-loading-bar/build/loading-bar.css" />
+    <link rel="stylesheet" href="static/vendor/angular-formly-templates-lumx/dist/formlyLumx.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css static/styles/app.css -->
@@ -28,7 +29,7 @@
     <link rel="stylesheet" href="static/styles/phone.css">
     <!-- endinject -->
     <!-- endbuild -->
-    <link href="static/formlyLumx.css" rel="stylesheet">
+    <!--link(href='static/formlyLumx.css', rel='stylesheet')-->
   </head>
   <body ng-class="_class + '-page'">
     <div class="wrapper">
@@ -58,11 +59,13 @@
     <script src="static/vendor/angular-formly/dist/formly.js"></script>
     <script src="static/vendor/angular-aria/angular-aria.js"></script>
     <script src="static/vendor/ngstorage/ngStorage.js"></script>
+    <script src="static/vendor/angular-formly-templates-lumx/dist/formlyLumx.js"></script>
+    <script src="static/vendor/forge/js/forge.js"></script>
     <!-- endbower -->
     <!-- inject:mockDeps:js -->
     <!-- endinject -->
     <!-- endbuild -->
-    <script src="static/formlyLumx.js"></script><!-- build:js static/js/app.js -->
+    <script src="static/scripts/forge.min.js"></script><!-- build:js static/js/app.js -->
     <!-- inject:js -->
     <script src="static/app.module.js"></script>
     <script src="static/core/core.module.js"></script>
@@ -92,7 +95,6 @@
     <script src="static/csr/csr.service.js"></script>
     <script src="static/dashboard/dashboard.controller.js"></script>
     <script src="static/dashboard/dashboard.route.js"></script>
-    <script src="static/formlyLumx.js"></script>
     <script src="static/helper/ajax-error-handler.service.js"></script>
     <script src="static/helper/logger.service.js"></script>
     <script src="static/helper/router-helper.provider.js"></script>
@@ -111,6 +113,7 @@
     <script src="static/phone/phone.form.directive.js"></script>
     <script src="static/phone/phone.route.js"></script>
     <script src="static/phone/phone.service.js"></script>
+    <script src="static/scripts/forge.min.js"></script>
     <script src="static/settings/settings.controller.js"></script>
     <script src="static/settings/settings.create.controller.js"></script>
     <script src="static/settings/settings.detail.controller.js"></script>

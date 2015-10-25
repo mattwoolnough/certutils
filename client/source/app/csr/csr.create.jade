@@ -3,5 +3,14 @@
         .card-header(class="p+")
             h3.title Create a new csr
         .card-content
+        .actions(class="mt p+")
             formly-form(model="vm.formData", fields="vm.formFields", csr="vm.csr", submit="vm.createNewCsr", state="vm.state")
-            //aio-csr-form(csr="vm.csr", submit="vm.createNewCsr", state="vm.state")
+                .actions(class="mt p+")
+                    button.btn.btn--m.btn--white.btn--raised.btn-cancel(
+                    ng-click="vm.cancel()",
+                    ng-disabled="vm.isRequest"
+                    ) Cancel
+                    button.btn.btn--m.btn--green.btn--raised.btn-save(type="submit",
+                    ng-click="vm.submitForm(vm.formData)",
+                    ng-disabled="vm.formData.$invalid || vm.formData.$pristine"
+                    ) Submit
