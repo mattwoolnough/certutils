@@ -55,25 +55,48 @@
 
                     csr.publicKey = keys.publicKey;
 
-                    csr.setSubject ([{
-                        name: 'commonName',
-                        value: subject.CN
-                    }, {
-                        name: 'countryName',
-                        value: subject.C
-                    }, {
-                        shortName: 'ST',
-                        value: subject.ST
-                    }, {
-                        name: 'localityName',
-                        value: subject.L
-                    }, {
-                        name: 'organizationName',
-                        value: subject.O
-                    }, {
-                        shortName: 'OU',
-                        value: subject.OU
-                    }]);
+                    var forgeSubject = [];
+
+                    if (subject.hasOwnProperty('CN')) {
+                        forgeSubject.push({
+                            name: 'commonName',
+                            value: subject.CN
+                        });
+                    }
+                    if (subject.hasOwnProperty('C')) {
+                        forgeSubject.push({
+                            name: 'countryName',
+                            value: subject.C
+                        });
+                    }
+                    if (subject.hasOwnProperty('ST')) {
+                        forgeSubject.push({
+                            name: 'ST',
+                            value: subject.ST
+                        });
+                        forgeSubject.ST = subject.ST
+                    }
+                    if (subject.hasOwnProperty('L')) {
+                        forgeSubject.push({
+                            name: 'localityName',
+                            value: subject.L
+                        });
+                    }
+                    if (subject.hasOwnProperty('O')) {
+                        forgeSubject.push({
+                            name: 'organizationName',
+                            value: subject.O
+                        });
+                    }
+                    if (subject.hasOwnProperty('OU')) {
+                        forgeSubject.push({
+                            name: 'OU',
+                            value: subject.OU
+                        });
+                    }
+                    console.log(JSON.stringify(forgeSubject));
+
+                    csr.setSubject (forgeSubject);
 
                     // sign certification request
                     csr.sign (keys.privateKey);
