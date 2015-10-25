@@ -4,6 +4,7 @@
 
     angular
     .module ('app.csr')
+
     .controller ('CsrAddController', CsrAddController);
 
     CsrAddController.$inject = ['csrAPI', '$state',
@@ -14,7 +15,7 @@
         var vm = this;
 
         //vm.createNewCsr = createNewCsr;
-        //vm.submitForm = submitForm;
+        vm.submitForm = submitForm;
 
         init ();
 
@@ -36,9 +37,9 @@
                     },
                     style: 'height: 200px',
                     fields: [{
-                        key: 'CN    ',
+                        key: 'CN',
                         type: 'lx-input',
-                        defaultValue: 'google.com',
+                        //defaultValue: 'google.com',
                         wrapper: 'lx-wrapper-flex',
                         templateOptions: {
                             type: 'text',
@@ -131,6 +132,27 @@
             {
                 template: '<br/><h4>Blah 2</h4>'
             }];
+        }
+
+        function submitForm () {
+            $state.go('root.csr.detail');
+            console.log('state.go(root.csr.detail)');
+            //var subject = vm.constructSubject (vm.user);
+            //var subject = 'www.google.com';
+            //var keyalg = vm.user.keyalg,
+            //    keylen = vm.user.keylength,
+            //    sigalg = vm.user.sigalg;
+            var keyalg = 'RSA',
+                keylen = '2048',
+                sigalg = 'SHA256withRSA';
+
+            csrAPI.generateCSR('forge', keyalg, keylen, vm.formData, sigalg).then (function (result) {
+                console.log('PEM: ' + result.pem);
+                console.log('KEY: ' + result.key);
+
+                vm.pem = result.pem;
+                vm.key = result.key;
+            });
         }
 
         //function createNewCsr (csr) {

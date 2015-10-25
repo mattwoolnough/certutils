@@ -1,8 +1,13 @@
+// jshint ignore: start
 (function () {
     'use strict';
 
     angular
         .module('app.csr')
+        .service('forge', function () {
+            // return the global forge instance
+            return forge;
+        })
         .factory('csrAPI', csrService);
 
     csrService.$inject = ['$http', '$q', 'ajaxErrorHandler'];
@@ -10,8 +15,7 @@
     function csrService ($http, $q, ajaxError) {
         var service = {
             createNewCsr: createNewCsr,
-            cipherGenerateKey: cipherGenerateKey,
-            forge: forge
+            generateCSR: generateCSR
         };
 
         return service;
@@ -19,9 +23,9 @@
         /////////////
         ////  Load Forge global as a service
         /////////////
-        function forge () {
-            return forge;
-        }
+        //function forge () {
+        //    return forge;
+        //}
 
         function createNewCsr (csr) {
             var req = {
@@ -41,11 +45,11 @@
             }
         }
 
-        function cipherGenerateKey ($q, library, keyalg, keylen, subject) {
+        function generateCSR (library, keyalg, keylen, subject, sigalg) {
                 //https://github.com/digitalbazaar/forge/issues/103
                 var deferred = $q.defer ();
                 if (library === 'forge') {
-                    var keys = forge.pki.rsa.generateKeyPair (2048);
+                    var keys = forge.pki.rsa.generateKeyPair (keylen);
                     var privKey = forge.pki.privateKeyToPem (keys.privateKey);
                     var csr = forge.pki.createCertificationRequest ();
 

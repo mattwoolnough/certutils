@@ -52,7 +52,7 @@
             {
                 state: 'root.csr.detail',
                 config: {
-                    url: '/:id',
+                    url: '/detail',
                     views: {
                         'main@': {
                             templateUrl: 'static/csr/csr.detail.html',

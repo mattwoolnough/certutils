@@ -2,6 +2,8 @@
     .card
         .card-header(class="p+")
             h3.title {{::vm.csr.model}}
+            {{vm.pem}}
+            {{vm.key}}
             button.btn.btn--m.btn--blue.btn--fab(ng-show="vm.state === 'view'", ng-click="vm.beginEdit()")
                 i.mdi.mdi-pencil
         .card-content
