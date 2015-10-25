@@ -15,10 +15,15 @@
     function csrService ($http, $q, ajaxError) {
         var service = {
             createNewCsr: createNewCsr,
-            generateCSR: generateCSR
+            generateCSR: generateCSR,
+            result: result
         };
 
         return service;
+
+        function result () {
+            var result = this;
+        }
 
         function createNewCsr (csr) {
             var req = {
