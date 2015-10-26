@@ -3,7 +3,24 @@
     'use strict';
 
     angular
-        .module('app.csr')
+        .module('app.csr').
+        service('moveService', function () {
+            var resultList = [];
+
+            var addResult = function (newObj) {
+                resultList.push (newObj);
+            };
+
+            var getResults = function () {
+                return resultList;
+            };
+
+            return {
+                addResult: addResult,
+                getResults: getResults
+            };
+
+        })
         .service('forge', function () {
             // return the global forge instance
             return forge;
@@ -15,15 +32,10 @@
     function csrService ($http, $q, ajaxError) {
         var service = {
             createNewCsr: createNewCsr,
-            generateCSR: generateCSR,
-            result: result
+            generateCSR: generateCSR
         };
 
         return service;
-
-        function result () {
-            var result = this;
-        }
 
         function createNewCsr (csr) {
             var req = {

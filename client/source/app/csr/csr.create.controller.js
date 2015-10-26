@@ -8,13 +8,12 @@
     .controller ('CsrAddController', CsrAddController);
 
     CsrAddController.$inject = ['csrAPI', '$state',
-        'LxNotificationService', '$q', 'resultService'];
+        'LxNotificationService', '$q', 'moveService'];
     /* @ngInject */
     function CsrAddController (csrAPI, $state,
-                               LxNotificationService, $q, resultService) {
+                               LxNotificationService, $q, moveService) {
         var vm = this;
 
-        //vm.createNewCsr = createNewCsr;
         vm.submitForm = submitForm;
 
         init ();
@@ -151,8 +150,8 @@
                 console.log('KEY: ' + result.key);
                 //http://stackoverflow.com/questions/20181323/passing-data-between-controllers-in-angular-js
 
-                resultService.addResult(result);
-
+                moveService.addResult(result);
+                //resultService.addResult(result);
                 vm.pem = result.pem;
                 vm.key = result.key;
             });

@@ -8,13 +8,12 @@
     .controller ('CsrAddController', CsrAddController);
 
     CsrAddController.$inject = ['csrAPI', '$state',
-        'LxNotificationService', '$q'];
+        'LxNotificationService', '$q', 'moveService'];
     /* @ngInject */
     function CsrAddController (csrAPI, $state,
-                               LxNotificationService, $q) {
+                               LxNotificationService, $q, moveService) {
         var vm = this;
 
-        //vm.createNewCsr = createNewCsr;
         vm.submitForm = submitForm;
 
         init ();
@@ -149,7 +148,10 @@
             csrAPI.generateCSR('forge', keyalg, keylen, vm.formData, sigalg).then (function (result) {
                 console.log('PEM: ' + result.pem);
                 console.log('KEY: ' + result.key);
+                //http://stackoverflow.com/questions/20181323/passing-data-between-controllers-in-angular-js
 
+                moveService.addResult(result);
+                //resultService.addResult(result);
                 vm.pem = result.pem;
                 vm.key = result.key;
             });
