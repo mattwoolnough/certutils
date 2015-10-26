@@ -150,28 +150,10 @@
                 console.log('KEY: ' + result.key);
                 //http://stackoverflow.com/questions/20181323/passing-data-between-controllers-in-angular-js
 
-                transferService.addResult(result);
-                //resultService.addResult(result);
-                //vm.pem = result.pem;
-                //vm.key = result.key;
+                transferService.updateValue(result);
+
             });
         }
-
-        //function createNewCsr (csr) {
-        //    // return promise here to let the csr form controller know the response status
-        //    return csrAPI.createNewCsr (csr)
-        //        .then (_success)
-        //        .catch (_error);
-        //
-        //    function _success (data) {
-        //        $state.go ('root.csr');
-        //    }
-        //
-        //    function _error (message) {
-        //        LxNotificationService.alert ('Add csr error', message, 'OK');
-        //        return $q.reject ();
-        //    }
-        //}
     }
 
 }) ();

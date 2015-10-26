@@ -4,25 +4,13 @@
 
     angular
         .module('app.csr')
+
         .service('transferService', function () {
-
-            var resultList = [];
-
-            var addResult = function (newObj) {
-                resultList.push (newObj);
-            };
-
-            var getResults = function () {
-                //var deferred = $q.defer();
-                //deferred.resolve(resultList);
-                //return deferred.promise;
-                return resultList;
-            };
-
-            return {
-                addResult: addResult,
-                getResults: getResults
-            };
+            var object = {};
+            object.updateValue = function (value) {
+                this.value = value;
+                $rootScope.$broadcast ('valueUpdated');
+            }
 
         })
         .service('forge', function () {

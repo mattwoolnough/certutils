@@ -25,7 +25,9 @@
         /////////////
 
         function init () {
-            vm.results = csrTransferService.getResults();
+            vm.pem = csrTransferService.pem;
+            vm.key = csrTransferService.key;
+
             console.log(JSON.stringify(vm.results));
             //vm.results = resultService.;
         }
