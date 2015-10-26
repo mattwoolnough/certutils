@@ -5,12 +5,23 @@
         .module('app.csr')
         .run(appRun);
 
-    appRun.$inject = ['routerHelper'];
+    appRun.$inject = ['routerHelper', 'transferService'];
+    //CsrDetailController.$inject = ['transferService'];
+
+    function csrTransferService (transferService) {
+        return transferService.getResults();
+    }
 
     /* @ngInject */
     function appRun (routerHelper) {
-        routerHelper.configureStates(getStates());
+        routerHelper.configureStates (getStates());
     }
+
+    ///* @ngInject */
+    //function CsrDetailController (csrTransferService) {
+    //    var vm = this;
+    //    vm.result = csrTransferService.getResults;
+    //}
 
     function getStates () {
         return [
@@ -52,6 +63,9 @@
             {
                 state: 'root.csr.detail',
                 config: {
+                    resolve: {
+                        csrTransferService: csrTransferService
+                    },
                     url: '/detail',
                     views: {
                         'main@': {

@@ -3,8 +3,9 @@
     'use strict';
 
     angular
-        .module('app.csr').
-        service('moveService', function () {
+        .module('app.csr')
+        .service('transferService', function () {
+
             var resultList = [];
 
             var addResult = function (newObj) {
@@ -12,6 +13,9 @@
             };
 
             var getResults = function () {
+                //var deferred = $q.defer();
+                //deferred.resolve(resultList);
+                //return deferred.promise;
                 return resultList;
             };
 

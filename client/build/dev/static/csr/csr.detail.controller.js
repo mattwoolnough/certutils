@@ -6,10 +6,10 @@
         .controller('CsrDetailController', CsrDetailController);
 
     CsrDetailController.$inject = ['csrAPI', '$stateParams',
-        'LxNotificationService', '$q', 'moveService'];
+        'LxNotificationService', '$q', 'csrTransferService'];
     /* @ngInject */
     function CsrDetailController (csrAPI, $stateParams,
-        LxNotificationService, $q, moveService) {
+        LxNotificationService, $q, csrTransferService) {
         var vm = this;
 
         vm.state = 'view';
@@ -18,14 +18,14 @@
         //vm.updateCsr = updateCsr;
         //vm.results = null;
 
-        var _originalCsr;
+        //var _originalCsr;
 
         init();
 
         /////////////
 
         function init () {
-            vm.results = moveService.getResults();
+            vm.results = csrTransferService.getResults();
             console.log(JSON.stringify(vm.results));
             //vm.results = resultService.;
         }
